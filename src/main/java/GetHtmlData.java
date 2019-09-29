@@ -1,5 +1,8 @@
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
+import java.util.ArrayList;
 
 public class GetHtmlData {
     public  void getData(){
@@ -8,14 +11,12 @@ public class GetHtmlData {
 
         try{
             final Document document = Jsoup.connect(url).get();
-            System.out.println(document.outerHtml());
+
+            Elements elements = document.select("table > tbody > tr > td > p");
+            System.out.println(elements);
         }
         catch (Exception ex){
             ex.printStackTrace();
         }
-    }
-
-    public void print(){
-        System.out.println("Haha gagshadhjsadahjdhja");
     }
 }
