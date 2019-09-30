@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 public class ExcelFunction {
-    public void create(){
+
         // Creating Workbook instances
         Workbook wb = new XSSFWorkbook();
 
@@ -16,6 +16,7 @@ public class ExcelFunction {
         Sheet sheet1 = wb.createSheet("IssuesData");
         Sheet sheet2 = wb.createSheet("ListData");
 
+    public void save(){
         // An output stream accepts output bytes and sends them to sink.
         try (OutputStream fileOut = new FileOutputStream("workbook.xlsx")) {
             wb.write(fileOut);

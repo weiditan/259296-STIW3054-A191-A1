@@ -3,7 +3,7 @@ import org.jsoup.nodes.Document;
 
 public class GetUrlData {
 
-    public Document getData(final String url){
+    public static Document getData(final String url){
         while (true) {
             try {
                 final Document document = Jsoup.connect(url).get();

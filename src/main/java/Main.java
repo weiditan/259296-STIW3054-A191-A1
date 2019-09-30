@@ -1,10 +1,8 @@
-
-
 public class Main {
     public static void main(String[] ags) {
 
         ExcelFunction excelFunction = new ExcelFunction();
-        excelFunction.create();
+        excelFunction.save();
         System.out.println("Sheets Has been Created successfully");
 
 
@@ -15,10 +13,9 @@ public class Main {
 
 
         System.out.println("\nLoading...");
-        SaveListData saveListData = new SaveListData();
-        saveListData.listData();
+        SaveListData.SaveListExcel saveListExcel = new SaveListData.SaveListExcel();
+        saveListExcel.listData();
         System.out.println("Saving List Data Complete.");
-
 
     }
 }
