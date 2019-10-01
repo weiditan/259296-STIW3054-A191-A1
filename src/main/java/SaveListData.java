@@ -11,12 +11,17 @@ public class SaveListData extends GetUrlData {
             Elements elementsList = docList.select("table").select("tr");
             for(int i = 0;i<elementsList.size();i++){
                 Elements elementsItem = elementsList.get(i).select("td");
-                Row row = sheet2.createRow(i);
+
+                //Select Excel sheet and row
+                Row row = sheetList.createRow(i);
+
                 for(int j = 0;j<elementsItem.size();j++){
+                    //Insert data to selected Excel column
                     row.createCell(j).setCellValue(elementsItem.get(j).text());
                 }
             }
 
+            //Save to Excel file
             save();
 
             if(elementsList.size()==0){

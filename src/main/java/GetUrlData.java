@@ -10,7 +10,7 @@ public class GetUrlData {
                 return document;
             } catch (Exception ex) {
                 System.out.println("\u001B[31m\nUnable connect to the URL !\u001B[0m");
-                System.out.println("Press Enter to continue...");
+                System.out.println("Press Enter to retry...");
                 try {
                     System.in.read();
                 } catch (Exception e) {}
