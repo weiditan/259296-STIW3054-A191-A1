@@ -30,8 +30,12 @@ public class ExcelFunction implements AnsiCode{
             wb = new XSSFWorkbook(file);
             sheetList = wb.getSheet("ListData");
             sheetIssues = wb.getSheet("IssuesData");
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            System.out.println(ANSI_RED + "\nFailed to read the Excel file !" + ANSI_RESET);
+            System.out.println("Press Enter to retry...");
+            try {
+                System.in.read();
+            } catch (Exception e) { }
         }
     }
 
@@ -42,7 +46,7 @@ public class ExcelFunction implements AnsiCode{
                 wb.write(fileOut);
                 break;
             } catch (IOException ex) {
-                System.out.println(ANSI_RED + "\nFailed to create Excel file !" + ANSI_RESET);
+                System.out.println(ANSI_RED + "\nFailed to create the Excel file !" + ANSI_RESET);
                 System.out.println("Press Enter to retry...");
                 try {
                     System.in.read();
