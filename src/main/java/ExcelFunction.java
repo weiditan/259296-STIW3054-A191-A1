@@ -1,37 +1,52 @@
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.awt.*;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 
 public class ExcelFunction implements AnsiCode{
 
+    XSSFWorkbook wb;
+    XSSFSheet sheetList,sheetIssues;
     // Set Excel File Name
     String fileName = "UrlData.xlsx";
 
-    // Creating Workbook instances
-    Workbook wb = new XSSFWorkbook();
 
-    // Creating Sheets using sheet object
-    Sheet sheetIssues = wb.createSheet("IssuesData");
-    Sheet sheetList = wb.createSheet("ListData");
+    public void create(){
+        // Creating Workbook instances
+        wb = new XSSFWorkbook();
 
-    public void save(){
+        // Creating Sheets using sheet object
+        wb.createSheet("ListData");
+        wb.createSheet("IssuesData");
+
+        //Save the Excel file
+        saveExcel();
+    }
+
+    public void readExcel() {
+        try {
+            FileInputStream file = new FileInputStream(fileName);
+            wb = new XSSFWorkbook(file);
+            sheetList = wb.getSheet("ListData");
+            sheetIssues = wb.getSheet("IssuesData");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void saveExcel(){
         while (true) {
             // An output stream accepts output bytes and sends them to sink.
             try (OutputStream fileOut = new FileOutputStream(fileName)) {
                 wb.write(fileOut);
                 break;
             } catch (IOException ex) {
-                System.out.println(ANSI_RED+"\nFailed to create Excel file !"+ANSI_RESET);
+                System.out.println(ANSI_RED + "\nFailed to create Excel file !" + ANSI_RESET);
                 System.out.println("Press Enter to retry...");
                 try {
                     System.in.read();
-                } catch (Exception e) {}
+                } catch (Exception e) { }
             }
         }
     }
@@ -47,6 +62,4 @@ public class ExcelFunction implements AnsiCode{
             System.out.println(ANSI_RED+file+" either not exist or can't open"+ANSI_RESET);
         }
     }
-
-
 }

@@ -3,13 +3,13 @@ public class Main implements AnsiCode {
 
         System.out.println(ANSI_BLUE+"\nCreating Excel file..."+ANSI_RESET);
         ExcelFunction excelFunction = new ExcelFunction();
-        excelFunction.save();
+        excelFunction.create();
         System.out.println(ANSI_GREEN+"Excel File has been created successfully !"+ANSI_RESET);
 
 
         System.out.println(ANSI_BLUE+"\nSaving Issues Data..."+ANSI_RESET);
-        SaveIssuesData saveIssuesData = new SaveIssuesData();
-        saveIssuesData.issuesData();
+        SaveIssuesData.SaveIssuesExcel saveIssuesExcel = new SaveIssuesData.SaveIssuesExcel();
+        saveIssuesExcel.issuesData();
         System.out.println(ANSI_GREEN+"Saved Issues Data Complete !"+ANSI_RESET);
 
 
@@ -18,6 +18,6 @@ public class Main implements AnsiCode {
         saveListExcel.listData();
         System.out.println(ANSI_GREEN+"Saved List Data Complete !"+ANSI_RESET);
 
-        //excelFunction.open();
+        excelFunction.open();
     }
 }
