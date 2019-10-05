@@ -18,9 +18,9 @@ public class Main implements AnsiCode {
         saveIssuesExcel.issuesData();
         System.out.println(ANSI_GREEN+"Saved Issues Data Complete !"+ANSI_RESET);
 
-        //excelFunction.open();
+        ReadExcelData readListData = new ReadExcelData();
 
-      /*  Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 
         while (true) {
 
@@ -36,11 +36,13 @@ public class Main implements AnsiCode {
 
             switch (input) {
                 case "1":
-                    System.out.println("Monday");
-
+                    readListData.readData("ListData");
                     break;
                 case "2":
-                    System.out.println("Tuesday");
+                    readListData.readData("IssuesData");
+                    break;
+                case "5":
+                    excelFunction.open();
                     break;
                 case "0":
                     System.exit(0);
@@ -49,14 +51,10 @@ public class Main implements AnsiCode {
                     System.out.println("Invalid input please try again !");
                     System.out.println("Please enter your choice");
             }
-        }*/
+        }
 
-        ReadExcelData readListData = new ReadExcelData();
-        readListData.readData();
 
-       /* System.out.format("%-10s",90);
-        System.out.format("%-15s",905654);
-        System.out.format("%15s",90);
-        System.out.format("%15s",90);*/
+
+
     }
 }

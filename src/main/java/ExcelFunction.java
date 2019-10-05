@@ -1,3 +1,6 @@
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -17,9 +20,35 @@ public class ExcelFunction implements AnsiCode{
         // Creating Workbook instances
         wb = new XSSFWorkbook();
 
+        CellStyle style = wb.createCellStyle();//Create style
+        XSSFFont font = wb.createFont();//Create font
+        font.setBold(true);//Make font bold
+        style.setFont(font);//set it to bold
+
         // Creating Sheets using sheet object
         wb.createSheet("ListData");
+        sheetList = wb.getSheet("ListData");
+        Row rowList = sheetList.createRow(0);
+        rowList.createCell(0).setCellValue("No");
+        rowList.createCell(1).setCellValue("Matric");
+        rowList.createCell(2).setCellValue("Name");
+
+        for(int i = 0; i < rowList.getLastCellNum(); i++){//For each cell in the row
+            rowList.getCell(i).setCellStyle(style);//Set the style
+        }
+
+
         wb.createSheet("IssuesData");
+        sheetIssues = wb.getSheet("IssuesData");
+        Row rowIssues = sheetIssues.createRow(0);
+        rowIssues.createCell(0).setCellValue("No");
+        rowIssues.createCell(1).setCellValue("Matric");
+        rowIssues.createCell(2).setCellValue("Name");
+        rowIssues.createCell(3).setCellValue("Link");
+
+        for(int i = 0; i < rowIssues.getLastCellNum(); i++){//For each cell in the row
+            rowIssues.getCell(i).setCellStyle(style);//Set the style
+        }
 
         //Save the Excel file
         saveExcel();
