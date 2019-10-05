@@ -63,7 +63,7 @@ public class SaveIssuesData extends GetUrlData {
                 }
 
                 if (elementsIssues.size() == 0) {
-                    System.out.println("\u001B[31m\nNo data from the URL !\u001B[0m");
+                    System.out.println("\u001B[31mNo data from the URL !\u001B[0m");
                     System.exit(0);
                 }
 
@@ -71,8 +71,7 @@ public class SaveIssuesData extends GetUrlData {
                 saveExcel();
 
             } catch (Exception e) {
-                e.printStackTrace();
-                //System.out.println("\u001B[31m\nUnable to receive data from the URL !\u001B[0m");
+                System.out.println("\u001B[31mUnable to receive data from the URL !\u001B[0m");
                 System.exit(0);
             }
         }
