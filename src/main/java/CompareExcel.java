@@ -12,7 +12,7 @@ public class CompareExcel extends ExcelFunction{
 
             int submitted = 0, noSubmit = 0, noInList = 0;
 
-            String[][] arrayNoSubmit = new String[sheetList.getLastRowNum()][];
+            Object[][] arrayNoSubmit = new String[sheetList.getLastRowNum()][];
 
             //Data in list
             for (int i=1; i <= sheetList.getLastRowNum(); i++ ) {

@@ -18,30 +18,29 @@ public class ReadExcelData extends ExcelFunction {
             System.out.println(sheet.getRow(0).getLastCellNum());
 
             if(sheet.getRow(0).getLastCellNum()==3){
-                format = "%-10s%-10s%-40s\n";
+                format = "| %-10s| %-10s| %-40s|\n";
+
+                printLine(sheet.getRow(0).getLastCellNum());
+
                 System.out.format(format,
                         sheet.getRow(0).getCell(0),
                         sheet.getRow(0).getCell(1),
                         sheet.getRow(0).getCell(2));
 
-                System.out.format(format,
-                        "---------",
-                        "---------",
-                        "---------------------------------------");
+                printLine(sheet.getRow(0).getLastCellNum());
 
             }else if (sheet.getRow(0).getLastCellNum()==4) {
-                format = "%-10s%-10s%-40s%-40s\n";
+                format = "| %-10s| %-10s| %-40s| %-40s|\n";
+
+                printLine(sheet.getRow(0).getLastCellNum());
+
                 System.out.format(format,
                         sheet.getRow(0).getCell(0),
                         sheet.getRow(0).getCell(1),
                         sheet.getRow(0).getCell(2),
                         sheet.getRow(0).getCell(3));
 
-                System.out.format(format,
-                        "---------",
-                        "---------",
-                        "---------------------------------------",
-                        "---------------------------------------");
+                printLine(sheet.getRow(0).getLastCellNum());
             }
 
             for (int i=1; i <= sheet.getLastRowNum(); i++ ) {
@@ -85,6 +84,8 @@ public class ReadExcelData extends ExcelFunction {
                System.out.format(format,rowData.toArray());
             }
 
+            printLine(sheet.getRow(0).getLastCellNum());
+
             System.out.println("Press Enter to continue...");
             try {
                 System.in.read();
@@ -95,4 +96,22 @@ public class ReadExcelData extends ExcelFunction {
             e.printStackTrace();
         }
     }
+
+    public void printLine(int totalCell) {
+
+        if (totalCell == 3) {
+            System.out.format("+%-10s+%-10s+%-40s+\n",
+                    "-----------",
+                    "-----------",
+                    "-----------------------------------------");
+        } else if (totalCell == 4){
+            System.out.format("+%-10s+%-10s+%-40s+%-40s+\n",
+                    "-----------",
+                    "-----------",
+                    "-----------------------------------------",
+                    "-----------------------------------------");
+        }
+    }
+
+
 }
