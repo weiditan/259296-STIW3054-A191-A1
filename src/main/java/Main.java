@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main implements AnsiCode {
@@ -19,42 +22,47 @@ public class Main implements AnsiCode {
         System.out.println(ANSI_GREEN+"Saved Issues Data Complete !"+ANSI_RESET);
 
         ReadExcelData readListData = new ReadExcelData();
+        CompareExcel compareExcel = new CompareExcel();
 
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 
         while (true) {
 
             System.out.println("MENU" +
-                            "\n1 View List Of Students"+
-                            "\n2 View List Of Issues"+
-                            "\n3 Compare two list"+
-                            "\n0 Exit");
+                    "\n1 View List Of Students" +
+                    "\n2 View List Of Issues" +
+                    "\n3 Compare two list" +
+                    "\n4 Open Excel file" +
+                    "\n0 Exit");
 
-            System.out.println("Please enter your choice");
+            String input = "";
 
-            String input = myObj.nextLine();  // Read user input
+            while (!input.equals("1") && !input.equals("2") && !input.equals("3") && !input.equals("4")) {
 
-            switch (input) {
-                case "1":
-                    readListData.readData("ListData");
-                    break;
-                case "2":
-                    readListData.readData("IssuesData");
-                    break;
-                case "5":
-                    excelFunction.open();
-                    break;
-                case "0":
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println("Invalid input please try again !");
-                    System.out.println("Please enter your choice");
+                System.out.println("Please enter your choice");
+
+                input = myObj.nextLine();  // Read user input
+
+                switch (input) {
+                    case "1":
+                        readListData.readData("ListData");
+                        break;
+                    case "2":
+                        readListData.readData("IssuesData");
+                        break;
+                    case "3":
+                        compareExcel.compare();
+                        break;
+                    case "4":
+                        excelFunction.open();
+                        break;
+                    case "0":
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("Invalid input please try again !");
+                }
             }
         }
-
-
-
-
     }
 }

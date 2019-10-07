@@ -3,7 +3,6 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 
 import java.util.ArrayList;
 
-
 public class ReadExcelData extends ExcelFunction {
     public void readData(String sheetName) {
 
@@ -12,7 +11,7 @@ public class ReadExcelData extends ExcelFunction {
             readExcel();
 
             XSSFSheet sheet = wb.getSheet(sheetName);
-            String format = null;
+            String format = "";
 
 
             System.out.println(sheet.getLastRowNum());
@@ -44,7 +43,6 @@ public class ReadExcelData extends ExcelFunction {
                         "---------------------------------------",
                         "---------------------------------------");
             }
-
 
             for (int i=1; i <= sheet.getLastRowNum(); i++ ) {
 
@@ -86,6 +84,11 @@ public class ReadExcelData extends ExcelFunction {
 
                System.out.format(format,rowData.toArray());
             }
+
+            System.out.println("Press Enter to continue...");
+            try {
+                System.in.read();
+            } catch (Exception ignored) { }
         }
         catch (Exception e)
         {
