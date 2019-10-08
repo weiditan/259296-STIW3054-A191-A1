@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -28,7 +29,7 @@ public class Main implements AnsiCode {
 
         while (true) {
 
-            System.out.println("MENU" +
+            System.out.println("\n"+ANSI_BOLD+ANSI_ITALIC+ANSI_CYAN+" MENU "+ANSI_RESET+
                     "\n1 View List Of Students" +
                     "\n2 View List Of Issues" +
                     "\n3 Compare two list" +
@@ -39,7 +40,7 @@ public class Main implements AnsiCode {
 
             while (!input.equals("1") && !input.equals("2") && !input.equals("3") && !input.equals("4")) {
 
-                System.out.println("Please enter your choice");
+                System.out.println("Please enter your choice ：");
 
                 input = myObj.nextLine();  // Read user input
 
