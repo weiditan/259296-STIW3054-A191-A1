@@ -31,7 +31,7 @@ public class ExcelFunction implements AnsiCode{
         Row rowList = sheetList.createRow(0);
         rowList.createCell(0).setCellValue("No");
         rowList.createCell(1).setCellValue("Matric");
-        rowList.createCell(2).setCellValue("GitHub Link");
+        rowList.createCell(2).setCellValue("Name");
 
         for(int i = 0; i < rowList.getLastCellNum(); i++){//For each cell in the row
             rowList.getCell(i).setCellStyle(style);//Set the style

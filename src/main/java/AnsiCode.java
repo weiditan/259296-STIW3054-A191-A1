@@ -10,4 +10,7 @@ interface AnsiCode {
     String ANSI_CYAN = "\u001B[36m";
     String ANSI_WHITE = "\u001B[37m";
 
+    String ANSI_BOLD = "\u001B[1m";
+    String ANSI_ITALIC = "\u001B[3m";
+
 }

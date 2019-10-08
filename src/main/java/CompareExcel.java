@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-
-public class CompareExcel extends ExcelFunction{
+public class CompareExcel extends ExcelFunction implements AnsiCode{
     public  void compare(){
         try {
             //Read Excel file
@@ -13,6 +10,9 @@ public class CompareExcel extends ExcelFunction{
             int submitted = 0, noSubmit = 0, noInList = 0;
 
             Object[][] arrayNoSubmit = new String[sheetList.getLastRowNum()][];
+
+            System.out.println(ANSI_YELLOW+ANSI_BOLD+ANSI_ITALIC+"\n\nSubmitted Students"+ANSI_RESET);
+            headerFourCell();
 
             //Data in list
             for (int i=1; i <= sheetList.getLastRowNum(); i++ ) {
@@ -26,7 +26,7 @@ public class CompareExcel extends ExcelFunction{
                         if (sheetList.getRow(i).getCell(1).toString().equals(sheetIssues.getRow(j).getCell(1).toString())){
                             submitted++;
                             found = true;
-                            format = "%-10s%-10s%-40s%-40s\n";
+                            format = "| %-10s| %-10s| %-40s| %-40s|\n";
                             System.out.format(format,
                                     submitted,
                                     String.valueOf((int)sheetList.getRow(i).getCell(1).getNumericCellValue()),
@@ -40,7 +40,7 @@ public class CompareExcel extends ExcelFunction{
 
                             submitted++;
                             found = true;
-                            format = "%-10s%-10s%-40s%-40s\n";
+                            format = "| %-10s| %-10s| %-40s| %-40s|\n";
                             System.out.format(format,
                                     submitted,
                                     String.valueOf((int)sheetList.getRow(i).getCell(1).getNumericCellValue()),
@@ -60,10 +60,22 @@ public class CompareExcel extends ExcelFunction{
 
             }
 
+            printFourLine();
+            System.out.println(ANSI_GREEN+"Total "+submitted+" students submitted the GitHub account."+ANSI_RESET);
+
+            System.out.println(ANSI_YELLOW+ANSI_BOLD+ANSI_ITALIC+"\n\nNot Submitted Students"+ANSI_RESET);
+            headerThreeCell();
+
             for(int k = 0; k < noSubmit; k++){
-                format = "%-10s%-10s%-40s\n";
+                format = "| %-10s| %-10s| %-40s|\n";
                 System.out.format(format, arrayNoSubmit[k]);
             }
+
+            printThreeLine();
+            System.out.println(ANSI_GREEN+"Total "+noSubmit+" students not submitted the GitHub account."+ANSI_RESET);
+
+            System.out.println(ANSI_YELLOW+ANSI_BOLD+ANSI_ITALIC+"\n\nWrong Submitted Students"+ANSI_RESET);
+            headerFourCell();
 
             //Data no in the list
             for (int i=1; i <= sheetIssues.getLastRowNum(); i++ ) {
@@ -81,7 +93,7 @@ public class CompareExcel extends ExcelFunction{
 
                     if(!inList){
                         noInList++;
-                        format = "%-10s%-10s%-40s%-40s\n";
+                        format = "| %-10s| %-10s| %-40s| %-40s|\n";
                         System.out.format(format,
                                 noInList,
                                 String.valueOf((int)sheetIssues.getRow(i).getCell(1).getNumericCellValue()),
@@ -91,7 +103,10 @@ public class CompareExcel extends ExcelFunction{
                 }
             }
 
-            System.out.println("Press Enter to continue...");
+            printFourLine();
+            System.out.println(ANSI_GREEN+"Total "+noInList+" another class students submitted the GitHub account."+ANSI_RESET);
+
+            System.out.println("\n\nPress Enter to continue...");
             try {
                 System.in.read();
             } catch (Exception ignored) { }
@@ -100,5 +115,31 @@ public class CompareExcel extends ExcelFunction{
         }catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void headerThreeCell(){
+        printThreeLine();
+        System.out.format("| %-10s| %-10s| %-40s|\n", "No","Matric","Name");
+        printThreeLine();
+    }
+    public void headerFourCell(){
+        printFourLine();
+        System.out.format("| %-10s| %-10s| %-40s| %-40s|\n", "No","Matric","Name","GitHub Link");
+        printFourLine();
+    }
+
+    public void printThreeLine(){
+        System.out.format("+%-10s+%-10s+%-40s+\n",
+                "-----------",
+                "-----------",
+                "-----------------------------------------");
+    }
+
+    public void printFourLine(){
+        System.out.format("+%-10s+%-10s+%-40s+%-40s+\n",
+                "-----------",
+                "-----------",
+                "-----------------------------------------",
+                "-----------------------------------------");
     }
 }

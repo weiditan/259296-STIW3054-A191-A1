@@ -3,7 +3,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 
 import java.util.ArrayList;
 
-public class ReadExcelData extends ExcelFunction {
+public class ReadExcelData extends ExcelFunction implements AnsiCode{
     public void readData(String sheetName) {
 
         try {
@@ -11,28 +11,41 @@ public class ReadExcelData extends ExcelFunction {
             readExcel();
 
             XSSFSheet sheet = wb.getSheet(sheetName);
-            String format = "";
+            String format = "", title = "", resultSentence = "";
+
+            int lastCell = sheet.getRow(0).getLastCellNum();
 
 
-            System.out.println(sheet.getLastRowNum());
-            System.out.println(sheet.getRow(0).getLastCellNum());
+            if(sheetName.equals("ListData")) {
 
-            if(sheet.getRow(0).getLastCellNum()==3){
+                title = ANSI_YELLOW+ANSI_BOLD+ANSI_ITALIC+"\n\nList Of Students"+ANSI_RESET;
+                resultSentence = ANSI_GREEN+"Total " + sheet.getLastRowNum() + " students in the class."+ANSI_RESET;
+
+            }else if(sheetName.equals("IssuesData")){
+
+                title = ANSI_YELLOW+ANSI_BOLD+ANSI_ITALIC+"\n\nList Of Issues"+ANSI_RESET;
+                resultSentence = ANSI_GREEN+"Total " + sheet.getLastRowNum() + " students have submitted the GitHub account."+ANSI_RESET;
+
+            }
+
+            System.out.println(title);
+
+            if(lastCell==3){
                 format = "| %-10s| %-10s| %-40s|\n";
 
-                printLine(sheet.getRow(0).getLastCellNum());
+                printLine(lastCell);
 
                 System.out.format(format,
                         sheet.getRow(0).getCell(0),
                         sheet.getRow(0).getCell(1),
                         sheet.getRow(0).getCell(2));
 
-                printLine(sheet.getRow(0).getLastCellNum());
+                printLine(lastCell);
 
-            }else if (sheet.getRow(0).getLastCellNum()==4) {
+            }else if (lastCell==4) {
                 format = "| %-10s| %-10s| %-40s| %-40s|\n";
 
-                printLine(sheet.getRow(0).getLastCellNum());
+                printLine(lastCell);
 
                 System.out.format(format,
                         sheet.getRow(0).getCell(0),
@@ -40,7 +53,7 @@ public class ReadExcelData extends ExcelFunction {
                         sheet.getRow(0).getCell(2),
                         sheet.getRow(0).getCell(3));
 
-                printLine(sheet.getRow(0).getLastCellNum());
+                printLine(lastCell);
             }
 
             for (int i=1; i <= sheet.getLastRowNum(); i++ ) {
@@ -82,19 +95,20 @@ public class ReadExcelData extends ExcelFunction {
                 }
 
                System.out.format(format,rowData.toArray());
+
+
             }
 
-            printLine(sheet.getRow(0).getLastCellNum());
+            printLine(lastCell);
 
-            System.out.println("Press Enter to continue...");
+            System.out.println(resultSentence);
+
+            System.out.println("\n\nPress Enter to continue...");
             try {
                 System.in.read();
             } catch (Exception ignored) { }
         }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
+        catch (Exception ignored) { }
     }
 
     public void printLine(int totalCell) {
