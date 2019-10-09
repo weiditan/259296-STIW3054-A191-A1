@@ -35,6 +35,7 @@ public class CompareExcel extends ExcelFunction implements AnsiCode{
                         }
 
                     }else {
+
                         if (sheetList.getRow(i).getCell(2).toString().replaceAll(" ","").toLowerCase().equals
                                 (sheetIssues.getRow(j).getCell(2).toString().replaceAll(" ","").toLowerCase())){
 
@@ -74,7 +75,7 @@ public class CompareExcel extends ExcelFunction implements AnsiCode{
             printThreeLine();
             System.out.println(ANSI_GREEN+"Total "+noSubmit+" students not submitted the GitHub account."+ANSI_RESET);
 
-            System.out.println(ANSI_YELLOW+ANSI_BOLD+ANSI_ITALIC+"\n\nWrong Submitted Students"+ANSI_RESET);
+            System.out.println(ANSI_YELLOW+ANSI_BOLD+ANSI_ITALIC+"\n\nSubmitted Students but not in students list"+ANSI_RESET);
             headerFourCell();
 
             //Data no in the list
@@ -104,7 +105,7 @@ public class CompareExcel extends ExcelFunction implements AnsiCode{
             }
 
             printFourLine();
-            System.out.println(ANSI_GREEN+"Total "+noInList+" another class students submitted the GitHub account."+ANSI_RESET);
+            System.out.println(ANSI_GREEN+"Total "+noInList+" students submitted the GitHub account but not in students list."+ANSI_RESET);
 
             System.out.println("\n\nPress Enter to continue...");
             try {
