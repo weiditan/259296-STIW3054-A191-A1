@@ -14,7 +14,7 @@ public class CompareExcel extends ExcelFunction implements AnsiCode{
             System.out.println(ANSI_YELLOW+ANSI_BOLD+ANSI_ITALIC+"\n\nSubmitted Students"+ANSI_RESET);
             headerFourCell();
 
-            //Data in list
+            //Compare data in students list and issues list
             for (int i=1; i <= sheetList.getLastRowNum(); i++ ) {
 
                 found = false;
@@ -50,7 +50,7 @@ public class CompareExcel extends ExcelFunction implements AnsiCode{
                         }
                     }
                 }
-
+                //Check who not submit and add to array
                 if(!found){
                     noSubmit++;
                     arrayNoSubmit[noSubmit-1] = new String[]{
@@ -58,27 +58,17 @@ public class CompareExcel extends ExcelFunction implements AnsiCode{
                             String.valueOf((int)sheetList.getRow(i).getCell(1).getNumericCellValue()),
                             sheetList.getRow(i).getCell(2).toString()};
                 }
-
             }
 
             printFourLine();
             System.out.println(ANSI_GREEN+"Total "+submitted+" students submitted the GitHub account."+ANSI_RESET);
 
-            System.out.println(ANSI_YELLOW+ANSI_BOLD+ANSI_ITALIC+"\n\nNot Submitted Students"+ANSI_RESET);
-            headerThreeCell();
 
-            for(int k = 0; k < noSubmit; k++){
-                format = "| %-10s| %-10s| %-40s|\n";
-                System.out.format(format, arrayNoSubmit[k]);
-            }
-
-            printThreeLine();
-            System.out.println(ANSI_GREEN+"Total "+noSubmit+" students not submitted the GitHub account."+ANSI_RESET);
-
+            //Print result for submitted students but not in students list
             System.out.println(ANSI_YELLOW+ANSI_BOLD+ANSI_ITALIC+"\n\nSubmitted Students but not in students list"+ANSI_RESET);
             headerFourCell();
 
-            //Data no in the list
+            //Compare data in issues list and students list who submitted but no in the students list
             for (int i=1; i <= sheetIssues.getLastRowNum(); i++ ) {
 
                 if (sheetIssues.getRow(i).getCell(1) != null) {
@@ -106,6 +96,20 @@ public class CompareExcel extends ExcelFunction implements AnsiCode{
 
             printFourLine();
             System.out.println(ANSI_GREEN+"Total "+noInList+" students submitted the GitHub account but not in students list."+ANSI_RESET);
+
+
+            //Print result for who no submit
+            System.out.println(ANSI_YELLOW+ANSI_BOLD+ANSI_ITALIC+"\n\nNot Submitted Students"+ANSI_RESET);
+            headerThreeCell();
+
+            for(int k = 0; k < noSubmit; k++){
+                format = "| %-10s| %-10s| %-40s|\n";
+                System.out.format(format, arrayNoSubmit[k]);
+            }
+
+            printThreeLine();
+            System.out.println(ANSI_GREEN+"Total "+noSubmit+" students not submitted the GitHub account."+ANSI_RESET);
+
 
             System.out.println("\n\nPress Enter to continue...");
             try {
