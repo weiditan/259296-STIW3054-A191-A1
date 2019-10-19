@@ -45,6 +45,9 @@ This system is using MAVEN and JAVA programming language. This system used JSOUP
  
 <br><br>
 ## References  
+Adam Pritchard(2017) Markdown Cheatsheet. Retrieved from   
+&nbsp;&nbsp;&nbsp;&nbsp; https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
 The Apache Software Foundation(2019) Busy Developers' Guide to HSSF and XSSF Features. Retrieved from   
 &nbsp;&nbsp;&nbsp;&nbsp; https://poi.apache.org/components/spreadsheet/quick-guide.html
 
