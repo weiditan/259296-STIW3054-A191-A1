@@ -14,4 +14,4 @@ This system is using MAVEN and JAVA programming language. This system used JSOUP
 ## YouTube Presentation  
 ## References  
 The Apache Software Foundation(2019) Busy Developers' Guide to HSSF and XSSF Features. Retrieved from   
-&nbsp;&nbsp;https://poi.apache.org/components/spreadsheet/quick-guide.html
+\t https://poi.apache.org/components/spreadsheet/quick-guide.html
