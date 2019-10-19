@@ -14,4 +14,7 @@ This system is using MAVEN and JAVA programming language. This system used JSOUP
 ## YouTube Presentation  
 ## References  
 The Apache Software Foundation(2019) Busy Developers' Guide to HSSF and XSSF Features. Retrieved from   
-&nbsp;&nbsp;&nbsp;&nbsp;https://poi.apache.org/components/spreadsheet/quick-guide.html
+&nbsp;&nbsp;&nbsp;&nbsp; https://poi.apache.org/components/spreadsheet/quick-guide.html
+
+Shane Lee(2018) How to Web Scrape Stock Data with Java using the JSoup Library. Retrieved from   
+&nbsp;&nbsp;&nbsp;&nbsp; https://www.youtube.com/watch?v=tI1qGwhn_bs
