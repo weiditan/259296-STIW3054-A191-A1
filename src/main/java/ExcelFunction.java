@@ -70,6 +70,16 @@ public class ExcelFunction implements AnsiCode{
     }
 
     public void saveExcel(){
+
+        sheetList.autoSizeColumn(0);
+        sheetList.autoSizeColumn(1);
+        sheetList.autoSizeColumn(2);
+
+        sheetIssues.autoSizeColumn(0);
+        sheetIssues.autoSizeColumn(1);
+        sheetIssues.autoSizeColumn(2);
+        sheetIssues.autoSizeColumn(3);
+
         while (true) {
             // An output stream accepts output bytes and sends them to sink.
             try (OutputStream fileOut = new FileOutputStream(fileName)) {
