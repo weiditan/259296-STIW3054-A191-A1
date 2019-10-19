@@ -1,11 +1,11 @@
 # 259296-STIW3054-A191-A1
-###Student Info  
+### Student Info  
 TAN WEI DI  
 259296
 
-###Introduction  
+### Introduction  
 
-###Result/Output  
-##UML Class Diagram  
-###YouTube Presentation  
-###References  
+### Result/Output  
+### UML Class Diagram  
+### YouTube Presentation  
+### References  
