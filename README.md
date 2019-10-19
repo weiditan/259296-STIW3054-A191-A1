@@ -1,5 +1,10 @@
 # 259296-STIW3054-A191-A1
-<br>
+1. [Student Info](#student-info)
+1. [Introduction](#introduction)
+1. [Result/Output](#resultoutput)
+1. [UML Class Diagram](#uml-class-diagram)
+1. [YouTube Presentation](#youtube-presentation)
+1. [References](#references)
 
 ## Student Info  
 TAN WEI DI  
