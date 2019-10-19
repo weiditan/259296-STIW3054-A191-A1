@@ -44,7 +44,7 @@ This system is using MAVEN and JAVA programming language. This system used JSOUP
 ## YouTube Presentation 
 https://youtu.be/z_VlBHmVOdo
 [![IMAGE ALT TEXT HERE](https://youtu.be/z_VlBHmVOdo/0.jpg)](https://youtu.be/z_VlBHmVOdo)
- 
+ [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/z_VlBHmVOdo/0.jpg)](https://www.youtube.com/watch?v=z_VlBHmVOdo)
 <br><br>
 ## References  
 Adam Pritchard(2017) Markdown Cheatsheet. Retrieved from   
