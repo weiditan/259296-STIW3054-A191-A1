@@ -42,7 +42,7 @@ This system is using MAVEN and JAVA programming language. This system used JSOUP
 
 <br><br>
 ## YouTube Presentation 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/z_VlBHmVOdo/0.jpg)](https://www.youtube.com/watch?v=z_VlBHmVOdo)
+[![YouTube Link](https://img.youtube.com/vi/z_VlBHmVOdo/0.jpg)](https://www.youtube.com/watch?v=z_VlBHmVOdo)  
 YouTube Link : https://youtu.be/z_VlBHmVOdo
 
 <br><br>
