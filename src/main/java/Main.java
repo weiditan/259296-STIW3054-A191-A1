@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main implements AnsiCode {
-    public static void main(String[] ags) {
+    public static void main(String[] args) {
 
         System.out.println(ANSI_BLUE+"Creating Excel file..."+ANSI_RESET);
         ExcelFunction excelFunction = new ExcelFunction();
